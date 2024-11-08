@@ -1,27 +1,44 @@
-# CompanyManagementFrontend
+# Company Management Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Descrição
+Este é um projeto frontend de gerenciamento de empresas e sócios, desenvolvido em Angular e utilizando Tailwind CSS para estilização. A aplicação permite o cadastro, edição e exclusão de empresas, bem como a gestão de seus sócios.
 
-## Development server
+### Funcionalidades Principais
+- Cadastro, edição e exclusão de empresas.
+- Cadastro, edição e exclusão de sócios.
+- Exibição de detalhes de empresas e seus sócios.
+- Modais de confirmação para exclusão de empresas e sócios.
+- Modais de alerta com variações para sucesso, erro e aviso.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tecnologias Utilizadas
+- **Angular**: Framework para construção do frontend.
+- **Tailwind CSS**: Utilizado para estilizar a interface do usuário.
+- **Angular Material**: Para criar modais e componentes visuais.
+- **RxJS**: Para manipulação de requisições assíncronas.
 
-## Code scaffolding
+## Estrutura do Projeto
+O projeto segue uma estrutura modular, com componentes reutilizáveis e um serviço (`ApiService`) responsável pela comunicação com a API.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Requisitos de Instalação
+- **Node.js** (versão 14 ou superior)
+- **Angular CLI** (versão 13 ou superior)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Como Executar o Projeto
 
-## Running unit tests
+1. **Clone o Repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/company-management-frontend.git
+   cd company-management-frontend
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. **Instale as Dependências**
+   ```bash
+   npm install
+   ```
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. **Inicie o Servidor de Desenvolvimento**
+   ```bash
+   ng serve
+   ```
+   O projeto estará disponível em [http://localhost:4200](http://localhost:4200).

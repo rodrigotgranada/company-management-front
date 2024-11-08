@@ -1,64 +1,86 @@
-<div *ngIf="empresa" class="p-6 bg-white rounded-lg shadow-md">
-  <div class="flex justify-between items-center mb-4">
-    <h2 class="text-2xl font-bold">{{ empresa.nome }}</h2>
-    <div *ngIf="isAdmin">
+<div *ngIf="empresa" class="p-8 bg-white rounded-lg shadow-lg">
+ 
+  <div class="flex justify-between items-center mb-6 border-b pb-4">
+    <h2 class="text-4xl font-bold text-gray-800">{{ empresa?.nome }}</h2>
+    <div *ngIf="isAdmin" class="flex space-x-2">
       <button
         (click)="abrirModalEditarEmpresa()"
-        class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 transition"
+        class="flex items-center bg-yellow-500 text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition font-semibold"
       >
-        Editar Empresa
+        <i class="fas fa-edit mr-2"></i> Editar
       </button>
       <button
         (click)="abrirModalAdicionarSocio()"
-        class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition ml-2"
+        class="flex items-center bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition font-semibold"
       >
-        Adicionar Sócio
+        <i class="fas fa-user-plus mr-2"></i> Adicionar Sócio
       </button>
       <button
         (click)="excluirEmpresa()"
-        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition ml-2"
+        class="flex items-center bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition font-semibold"
       >
-        Excluir Empresa
+        <i class="fas fa-trash mr-2"></i> Excluir
       </button>
     </div>
   </div>
 
-  <p><strong>CNPJ:</strong> {{ empresa.cnpj }}</p>
-  <p><strong>Endereço:</strong> {{ empresa.endereco }}</p>
-  <p><strong>Telefone:</strong> {{ empresa.telefone }}</p>
-  <p><strong>Email:</strong> {{ empresa.email }}</p>
+ 
+  <div class="mb-6">
+    <table class="table-auto w-[50%] text-left text-lg text-gray-800">
+      <tbody>
+        <tr>
+          <th class="font-semibold pr-4 py-2 align-top">CNPJ:</th>
+          <td class="py-2">{{ empresa?.cnpj }}</td>
+        </tr>
+        <tr>
+          <th class="font-semibold pr-4 py-2 align-top">Endereço:</th>
+          <td class="py-2">{{ empresa?.endereco }}</td>
+        </tr>
+        <tr>
+          <th class="font-semibold pr-4 py-2 align-top">Telefone:</th>
+          <td class="py-2">{{ empresa?.telefone }}</td>
+        </tr>
+        <tr>
+          <th class="font-semibold pr-4 py-2 align-top">Email:</th>
+          <td class="py-2">{{ empresa?.email }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-  <div *ngIf="empresa.socios !== undefined" class="mt-6">
-    <h3 class="text-xl font-bold mb-2">Sócios:</h3>
-    <div *ngIf="empresa.socios.length > 0">
-      <ul class="list-disc list-inside">
-        <li *ngFor="let socio of empresa.socios">
-          <strong>Nome:</strong> {{ socio.nome }} - <strong>CPF:</strong> {{ socio.cpf }}
-          <span *ngIf="socio.endereco">- <strong>Endereço:</strong> {{ socio.endereco }}</span>
-          <span *ngIf="socio.telefone">- <strong>Telefone:</strong> {{ socio.telefone }}</span>
-          <div *ngIf="isAdmin" class="mt-2">
-            <button
-              (click)="abrirModalEditarSocio(socio)"
-              class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition"
-            >
-              Editar Sócio
-            </button>
-            <button
-              (click)="excluirSocio(socio)"
-              class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition ml-2"
-            >
-              Excluir Sócio
-            </button>
-          </div>
-        </li>
-      </ul>
+  
+  <div class="mt-8">
+    <h3 class="text-2xl font-bold text-gray-800 mb-4">Sócios:</h3>
+    <div *ngIf="sociosValidos().length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let socio of sociosValidos()" class="bg-gray-50 border rounded-lg p-4 shadow-sm hover:shadow-md transition">
+        <h4 class="text-xl font-semibold mb-2 text-gray-700">{{ socio.nome }}</h4>
+        <p class="text-gray-600 mb-1"><strong>CPF:</strong> {{ socio.cpf }}</p>
+        <p class="text-gray-600 mb-1" *ngIf="socio.endereco"><strong>Endereço:</strong> {{ socio.endereco }}</p>
+        <p class="text-gray-600" *ngIf="socio.telefone"><strong>Telefone:</strong> {{ socio.telefone }}</p>
+
+       
+        <div *ngIf="isAdmin" class="mt-4 flex space-x-2">
+          <button
+            (click)="abrirModalEditarSocio(socio)"
+            class="flex items-center bg-yellow-500 text-white px-3 py-2 rounded-lg hover:bg-yellow-600 transition font-semibold"
+          >
+            <i class="fas fa-edit mr-1"></i> Editar
+          </button>
+          <button
+            (click)="excluirSocio(socio)"
+            class="flex items-center bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition font-semibold"
+          >
+            <i class="fas fa-trash mr-1"></i> Excluir
+          </button>
+        </div>
+      </div>
     </div>
-    <div *ngIf="empresa.socios.length === 0" class="text-gray-500">
+    <div *ngIf="sociosValidos().length === 0" class="text-gray-500 text-lg mt-4">
       Nenhum sócio cadastrado.
     </div>
   </div>
 </div>
 
 <div *ngIf="!empresa" class="text-center mt-8">
-  <p class="text-gray-500">Carregando detalhes da empresa...</p>
+  <p class="text-gray-500 text-lg">Carregando detalhes da empresa...</p>
 </div>

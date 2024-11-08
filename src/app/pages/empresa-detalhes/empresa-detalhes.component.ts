@@ -97,6 +97,10 @@ export class EmpresaDetalhesComponent implements OnInit {
     );
   }
 
+  sociosValidos(): Socio[] {
+    return this.empresa?.socios ?? [];
+  }
+
   abrirModalEditarEmpresa(): void {
     if (this.empresa) {
       const dialogRef = this.dialog.open(EditarEmpresaModalComponent, {
@@ -111,15 +115,8 @@ export class EmpresaDetalhesComponent implements OnInit {
           this.carregarDetalhesEmpresa(this.empresa!.id);
           this.dialog.open(AlertModalComponent, {
             data: {
-              type: 'success', // 'success' ou 'error' ou 'warning'
-              message: 'Sócio adicionado com sucesso!',
-            },
-          });
-        } else {
-          this.dialog.open(AlertModalComponent, {
-            data: {
-              type: 'error', // 'success' ou 'error' ou 'warning'
-              message: 'Erro ao atualizar empresa!',
+              type: 'success',
+              message: 'Empresa atualizada com sucesso!',
             },
           });
         }
@@ -141,15 +138,8 @@ export class EmpresaDetalhesComponent implements OnInit {
           this.carregarDetalhesEmpresa(this.empresa!.id);
           this.dialog.open(AlertModalComponent, {
             data: {
-              type: 'success', // 'success' ou 'error' ou 'warning'
+              type: 'success',
               message: 'Sócio adicionado com sucesso!',
-            },
-          });
-        } else {
-          this.dialog.open(AlertModalComponent, {
-            data: {
-              type: 'error', // 'success' ou 'error' ou 'warning'
-              message: 'Erro ao adicionar sócio!',
             },
           });
         }
@@ -170,15 +160,8 @@ export class EmpresaDetalhesComponent implements OnInit {
         this.carregarDetalhesEmpresa(this.empresa!.id);
         this.dialog.open(AlertModalComponent, {
           data: {
-            type: 'success', // 'success' ou 'error' ou 'warning'
+            type: 'success',
             message: 'Sócio atualizado com sucesso!',
-          },
-        });
-      } else {
-        this.dialog.open(AlertModalComponent, {
-          data: {
-            type: 'error', // 'success' ou 'error' ou 'warning'
-            message: 'Erro ao atualizar sócio!',
           },
         });
       }
@@ -189,7 +172,7 @@ export class EmpresaDetalhesComponent implements OnInit {
     const dialogRef = this.dialog.open(ConfirmationModalComponent, {
       data: {
         title: 'Confirmação',
-        message: `Deseja realmente excluir a empresa ${socio.nome}?`,
+        message: `Deseja realmente excluir o sócio ${socio.nome}?`,
       },
     });
 
@@ -197,18 +180,18 @@ export class EmpresaDetalhesComponent implements OnInit {
       if (confirmed) {
         this.apiService.excluirSocio(socio.id).subscribe(
           () => {
+            this.carregarDetalhesEmpresa(this.empresa!.id);
             this.dialog.open(AlertModalComponent, {
               data: {
-                type: 'success', // 'success' ou 'error' ou 'warning'
+                type: 'success',
                 message: 'Sócio excluído com sucesso!',
               },
             });
-            this.carregarDetalhesEmpresa(this.empresa!.id);
           },
           (error) => {
             this.dialog.open(AlertModalComponent, {
               data: {
-                type: 'error', // 'success' ou 'error' ou 'warning'
+                type: 'error',
                 message: 'Erro ao excluir sócio!',
               },
             });
@@ -224,7 +207,7 @@ export class EmpresaDetalhesComponent implements OnInit {
     if (this.empresa.socios && this.empresa.socios.length > 0) {
       this.dialog.open(AlertModalComponent, {
         data: {
-          type: 'error', // 'success' ou 'error' ou 'warning'
+          type: 'error',
           message:
             'Não é possível excluir uma empresa que possui sócios cadastrados.',
         },
@@ -244,7 +227,7 @@ export class EmpresaDetalhesComponent implements OnInit {
           () => {
             this.dialog.open(AlertModalComponent, {
               data: {
-                type: 'success', // 'success' ou 'error' ou 'warning'
+                type: 'success',
                 message: 'Empresa excluída com sucesso!',
               },
             });
@@ -253,8 +236,8 @@ export class EmpresaDetalhesComponent implements OnInit {
           (error) => {
             this.dialog.open(AlertModalComponent, {
               data: {
-                type: 'error', // 'success' ou 'error' ou 'warning'
-                message: 'Empresa não excluída!',
+                type: 'error',
+                message: 'Erro ao excluir empresa!',
               },
             });
           }

@@ -1,35 +1,68 @@
-<h2 class="text-lg font-bold mb-4">Adicionar Sócio</h2>
-<div class="flex flex-col gap-4">
-  <input
-    type="text"
-    [(ngModel)]="socio.nome"
-    placeholder="Nome do Sócio"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('nome') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    [(ngModel)]="socio.cpf"
-    placeholder="CPF do Sócio"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('cpf') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    [(ngModel)]="socio.endereco"
-    placeholder="Endereço do Sócio"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('endereco') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    [(ngModel)]="socio.telefone"
-    placeholder="Telefone do Sócio"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('telefone') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <div class="flex justify-end gap-2 mt-4">
-    <button (click)="onCancel()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Cancelar</button>
-    <button (click)="onSave()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Adicionar</button>
+<h2 class="text-2xl font-bold mb-6 text-gray-800">Adicionar Sócio</h2>
+<div class="flex flex-col gap-6">
+  <div class="relative">
+    <label for="nomeSocio" class="block text-lg font-semibold text-gray-700 mb-2">Nome do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-user text-gray-500"></i>
+      <input
+        id="nomeSocio"
+        type="text"
+        [(ngModel)]="socio.nome"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('nome') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('nome')" class="text-red-500 text-sm mt-1">Nome do sócio é obrigatório.</div>
+  </div>
+  <div class="relative">
+    <label for="cpfSocio" class="block text-lg font-semibold text-gray-700 mb-2">CPF do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-id-card text-gray-500"></i>
+      <input
+        id="cpfSocio"
+        type="text"
+        [(ngModel)]="socio.cpf"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('cpf') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('cpf')" class="text-red-500 text-sm mt-1">CPF do sócio é obrigatório.</div>
+  </div>
+
+  <div class="relative">
+    <label for="enderecoSocio" class="block text-lg font-semibold text-gray-700 mb-2">Endereço do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-map-marker-alt text-gray-500"></i>
+      <input
+        id="enderecoSocio"
+        type="text"
+        [(ngModel)]="socio.endereco"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('endereco') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('endereco')" class="text-red-500 text-sm mt-1">Endereço do sócio é obrigatório.</div>
+  </div>
+  <div class="relative">
+    <label for="telefoneSocio" class="block text-lg font-semibold text-gray-700 mb-2">Telefone do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-phone text-gray-500"></i>
+      <input
+        id="telefoneSocio"
+        type="text"
+        [(ngModel)]="socio.telefone"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('telefone') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('telefone')" class="text-red-500 text-sm mt-1">Telefone do sócio é obrigatório.</div>
+  </div>
+  <div class="flex justify-end gap-4 mt-6">
+    <button (click)="onCancel()" class="px-5 py-3 bg-gray-500 text-white rounded hover:bg-gray-600 transition">
+      Cancelar
+    </button>
+    <button (click)="onSave()" class="px-5 py-3 bg-green-600 text-white rounded hover:bg-green-700 transition">
+      Adicionar
+    </button>
   </div>
 </div>

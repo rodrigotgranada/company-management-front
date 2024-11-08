@@ -1,42 +1,92 @@
-<h2 class="text-lg font-bold mb-4">Editar Empresa</h2>
-<div class="flex flex-col gap-4">
-  <input
-    type="text"
-    [(ngModel)]="empresa.nome"
-    placeholder="Nome"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('nome') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    [(ngModel)]="empresa.cnpj"
-    placeholder="CNPJ"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('cnpj') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    [(ngModel)]="empresa.endereco"
-    placeholder="Endereço"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('endereco') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="text"
-    [(ngModel)]="empresa.telefone"
-    placeholder="Telefone"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('telefone') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <input
-    type="email"
-    [(ngModel)]="empresa.email"
-    placeholder="Email"
-    [ngClass]="{ 'input-invalid': isFieldInvalid('email') }"
-    class="p-2 border border-gray-300 rounded"
-  />
-  <div class="flex justify-end gap-2 mt-4">
-    <button (click)="onCancel()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Cancelar</button>
-    <button (click)="onSave()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Salvar</button>
+<h2 class="text-2xl font-bold mb-6 text-gray-800">Editar Empresa</h2>
+<div class="flex flex-col gap-6">
+ 
+  <div class="relative">
+    <label for="nomeEmpresa" class="block text-lg font-semibold text-gray-700 mb-2">Nome da Empresa</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-building text-gray-500"></i>
+      <input
+        id="nomeEmpresa"
+        type="text"
+        [(ngModel)]="empresa.nome"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('nome') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('nome')" class="text-red-500 text-sm mt-1">Nome da empresa é obrigatório.</div>
+  </div>
+
+  
+  <div class="relative">
+    <label for="cnpj" class="block text-lg font-semibold text-gray-700 mb-2">CNPJ da Empresa</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-id-card-alt text-gray-500"></i>
+      <input
+        id="cnpj"
+        type="text"
+        [(ngModel)]="empresa.cnpj"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('cnpj') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('cnpj')" class="text-red-500 text-sm mt-1">CNPJ da empresa é obrigatório.</div>
+  </div>
+
+
+  <div class="relative">
+    <label for="enderecoEmpresa" class="block text-lg font-semibold text-gray-700 mb-2">Endereço da Empresa</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-map-marker-alt text-gray-500"></i>
+      <input
+        id="enderecoEmpresa"
+        type="text"
+        [(ngModel)]="empresa.endereco"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('endereco') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('endereco')" class="text-red-500 text-sm mt-1">Endereço da empresa é obrigatório.</div>
+  </div>
+
+ 
+  <div class="relative">
+    <label for="telefoneEmpresa" class="block text-lg font-semibold text-gray-700 mb-2">Telefone da Empresa</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-phone text-gray-500"></i>
+      <input
+        id="telefoneEmpresa"
+        type="text"
+        [(ngModel)]="empresa.telefone"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('telefone') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('telefone')" class="text-red-500 text-sm mt-1">Telefone da empresa é obrigatório.</div>
+  </div>
+
+
+  <div class="relative">
+    <label for="emailEmpresa" class="block text-lg font-semibold text-gray-700 mb-2">Email da Empresa</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-envelope text-gray-500"></i>
+      <input
+        id="emailEmpresa"
+        type="email"
+        [(ngModel)]="empresa.email"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('email') }"
+      />
+    </div>
+    <div *ngIf="isFieldInvalid('email')" class="text-red-500 text-sm mt-1">Email da empresa é obrigatório.</div>
+  </div>
+
+ 
+  <div class="flex justify-end gap-4 mt-6">
+    <button (click)="onCancel()" class="px-5 py-3 bg-gray-500 text-white rounded hover:bg-gray-600 transition">
+      Cancelar
+    </button>
+    <button (click)="onSave()" class="px-5 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+      Salvar
+    </button>
   </div>
 </div>

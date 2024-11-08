@@ -1,67 +1,75 @@
-<h2 class="text-lg font-bold mb-4">Editar Sócio</h2>
-<div class="flex flex-col gap-4">
-  <!-- Nome do Sócio -->
+<h2 class="text-2xl font-bold mb-6 text-gray-800">Editar Sócio</h2>
+<div class="flex flex-col gap-6">
+ 
   <div class="relative">
-    <input
-      type="text"
-      placeholder="Nome do Sócio"
-      [(ngModel)]="socio.nome"
-      class="p-2 border border-gray-300 rounded w-full"
-      [ngClass]="{ 'border-red-500': isFieldInvalid('nome') }"
-    />
-    <div *ngIf="isFieldInvalid('nome')" class="absolute left-full ml-2 text-red-500 text-sm">
-      Nome do sócio é obrigatório.
+    <label for="nome" class="block text-lg font-semibold text-gray-700 mb-2">Nome do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-user text-gray-500"></i>
+      <input
+        id="nome"
+        type="text"
+        [(ngModel)]="socio.nome"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('nome') }"
+      />
     </div>
+    <div *ngIf="isFieldInvalid('nome')" class="text-red-500 text-sm mt-1">Nome do sócio é obrigatório.</div>
   </div>
 
-  <!-- CPF do Sócio -->
+
   <div class="relative">
-    <input
-      type="text"
-      placeholder="CPF do Sócio"
-      [(ngModel)]="socio.cpf"
-      class="p-2 border border-gray-300 rounded w-full"
-      [ngClass]="{ 'border-red-500': isFieldInvalid('cpf') }"
-    />
-    <div *ngIf="isFieldInvalid('cpf')" class="absolute left-full ml-2 text-red-500 text-sm">
-      CPF do sócio é obrigatório.
+    <label for="cpf" class="block text-lg font-semibold text-gray-700 mb-2">CPF do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-id-card text-gray-500"></i>
+      <input
+        id="cpf"
+        type="text"
+        [(ngModel)]="socio.cpf"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('cpf') }"
+      />
     </div>
+    <div *ngIf="isFieldInvalid('cpf')" class="text-red-500 text-sm mt-1">CPF do sócio é obrigatório.</div>
   </div>
 
-  <!-- Endereço do Sócio -->
+ 
   <div class="relative">
-    <input
-      type="text"
-      placeholder="Endereço do Sócio"
-      [(ngModel)]="socio.endereco"
-      class="p-2 border border-gray-300 rounded w-full"
-      [ngClass]="{ 'border-red-500': isFieldInvalid('endereco') }"
-    />
-    <div *ngIf="isFieldInvalid('endereco')" class="absolute left-full ml-2 text-red-500 text-sm">
-      Endereço do sócio é obrigatório.
+    <label for="endereco" class="block text-lg font-semibold text-gray-700 mb-2">Endereço do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-map-marker-alt text-gray-500"></i>
+      <input
+        id="endereco"
+        type="text"
+        [(ngModel)]="socio.endereco"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('endereco') }"
+      />
     </div>
+    <div *ngIf="isFieldInvalid('endereco')" class="text-red-500 text-sm mt-1">Endereço do sócio é obrigatório.</div>
   </div>
 
-  <!-- Telefone do Sócio -->
+ 
   <div class="relative">
-    <input
-      type="text"
-      placeholder="Telefone do Sócio"
-      [(ngModel)]="socio.telefone"
-      class="p-2 border border-gray-300 rounded w-full"
-      [ngClass]="{ 'border-red-500': isFieldInvalid('telefone') }"
-    />
-    <div *ngIf="isFieldInvalid('telefone')" class="absolute left-full ml-2 text-red-500 text-sm">
-      Telefone do sócio é obrigatório.
+    <label for="telefone" class="block text-lg font-semibold text-gray-700 mb-2">Telefone do Sócio</label>
+    <div class="flex items-center gap-2">
+      <i class="fas fa-phone text-gray-500"></i>
+      <input
+        id="telefone"
+        type="text"
+        [(ngModel)]="socio.telefone"
+        class="p-3 border border-gray-300 rounded w-full"
+        [ngClass]="{ 'border-red-500': isFieldInvalid('telefone') }"
+      />
     </div>
+    <div *ngIf="isFieldInvalid('telefone')" class="text-red-500 text-sm mt-1">Telefone do sócio é obrigatório.</div>
   </div>
 
-  <!-- Botões de Ação -->
-  <div class="flex justify-end gap-2 mt-4">
-    <button (click)="onCancel()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+ 
+  <div class="flex justify-end gap-4 mt-6">
+    <button (click)="onCancel()" class="px-5 py-3 bg-gray-500 text-white rounded hover:bg-gray-600 transition">
       Cancelar
     </button>
-    <button (click)="onSave()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+    <button (click)="onSave()" class="px-5 py-3 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
       Salvar
     </button>
   </div>

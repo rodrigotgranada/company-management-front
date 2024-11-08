@@ -1,4 +1,4 @@
-<h2 class="text-lg font-bold mb-4">Cadastrar Nova Empresa</h2>
+<h2 class="text-2xl font-bold mb-4 text-gray-800">Cadastrar Nova Empresa</h2>
 <div class="flex flex-col gap-4">
   <!-- Nome e CNPJ lado a lado -->
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -7,14 +7,14 @@
       placeholder="Nome"
       [(ngModel)]="nome"
       [ngClass]="{ 'input-invalid': isFieldInvalid('nome') }"
-      class="p-2 border border-gray-300 rounded"
+      class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
     <input
       type="text"
       placeholder="CNPJ"
       [(ngModel)]="cnpj"
       [ngClass]="{ 'input-invalid': isFieldInvalid('cnpj') }"
-      class="p-2 border border-gray-300 rounded"
+      class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
   </div>
 
@@ -24,7 +24,7 @@
     placeholder="Endereço"
     [(ngModel)]="endereco"
     [ngClass]="{ 'input-invalid': isFieldInvalid('endereco') }"
-    class="p-2 border border-gray-300 rounded w-full"
+    class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
   />
 
   <!-- Telefone e Email lado a lado -->
@@ -34,61 +34,61 @@
       placeholder="Telefone"
       [(ngModel)]="telefone"
       [ngClass]="{ 'input-invalid': isFieldInvalid('telefone') }"
-      class="p-2 border border-gray-300 rounded"
+      class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
     <input
       type="email"
       placeholder="Email"
       [(ngModel)]="email"
       [ngClass]="{ 'input-invalid': isFieldInvalid('email') }"
-      class="p-2 border border-gray-300 rounded"
+      class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
     />
   </div>
 
   <!-- Seção dos Sócios -->
   <div class="socios-section">
-    <h3 class="text-md font-bold mb-2">Sócios</h3>
-    <button (click)="addSocio()" class="mb-2 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600">
+    <h3 class="text-xl font-bold mb-2 text-gray-800">Sócios</h3>
+    <button (click)="addSocio()" class="mb-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
       Adicionar Sócio
     </button>
-    <div *ngFor="let socio of socios; let i = index" class="border border-gray-300 p-4 mb-2 rounded">
+    <div *ngFor="let socio of socios; let i = index" class="border border-gray-300 p-4 mb-2 rounded-lg">
       <input
         type="text"
         placeholder="Nome do Sócio"
         [(ngModel)]="socio.nome"
         [ngClass]="{ 'input-invalid': isFieldInvalid('nome', i) }"
-        class="p-2 mb-2 border border-gray-300 rounded"
+        class="p-3 mb-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
       />
       <input
         type="text"
         placeholder="CPF do Sócio"
         [(ngModel)]="socio.cpf"
         [ngClass]="{ 'input-invalid': isFieldInvalid('cpf', i) }"
-        class="p-2 mb-2 border border-gray-300 rounded"
+        class="p-3 mb-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
       />
       <input
         type="text"
         placeholder="Endereço do Sócio"
         [(ngModel)]="socio.endereco"
         [ngClass]="{ 'input-invalid': isFieldInvalid('endereco', i) }"
-        class="p-2 mb-2 border border-gray-300 rounded"
+        class="p-3 mb-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
       />
       <input
         type="text"
         placeholder="Telefone do Sócio"
         [(ngModel)]="socio.telefone"
         [ngClass]="{ 'input-invalid': isFieldInvalid('telefone', i) }"
-        class="p-2 border border-gray-300 rounded"
+        class="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 w-full"
       />
-      <button (click)="removeSocio(i)" class="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+      <button (click)="removeSocio(i)" class="mt-4 px-6 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
         Remover Sócio
       </button>
     </div>
   </div>
 
   <!-- Botões Salvar e Cancelar -->
-  <div class="flex justify-end gap-2 mt-4">
-    <button (click)="onCancel()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Cancelar</button>
-    <button (click)="onSave()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Salvar</button>
+  <div class="flex justify-end gap-2 mt-6">
+    <button (click)="onCancel()" class="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition">Cancelar</button>
+    <button (click)="onSave()" class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">Salvar</button>
   </div>
 </div>

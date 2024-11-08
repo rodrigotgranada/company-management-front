@@ -1,0 +1,30 @@
+<div class="p-4">
+  <!-- Botão para cadastrar uma nova empresa (somente para admin) -->
+  <div class="mb-4" *ngIf="isAdmin">
+    <button
+      (click)="abrirModalCadastro()"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+    >
+      Cadastrar Nova Empresa
+    </button>
+  </div>
+
+  <!-- Lista de Empresas -->
+  <div *ngIf="empresas.length > 0">
+    <h2 class="text-2xl font-bold mb-4 text-center">Empresas Cadastradas</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div *ngFor="let empresa of empresas" class="bg-white rounded-lg shadow-md p-6">
+        <!-- Link para detalhes da empresa -->
+        <h3 class="text-xl font-semibold mb-2">
+          <a [routerLink]="['/empresa', empresa.id]" class="text-blue-600 hover:underline">
+            {{ empresa.id }} - {{ empresa.nome }} 
+          </a>
+        </h3>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="empresas.length === 0" class="text-center mt-8">
+    <p class="text-gray-500">Nenhuma empresa cadastrada.</p>
+  </div>
+</div>

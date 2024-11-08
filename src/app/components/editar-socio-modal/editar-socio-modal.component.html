@@ -1,0 +1,68 @@
+<h2 class="text-lg font-bold mb-4">Editar Sócio</h2>
+<div class="flex flex-col gap-4">
+  <!-- Nome do Sócio -->
+  <div class="relative">
+    <input
+      type="text"
+      placeholder="Nome do Sócio"
+      [(ngModel)]="socio.nome"
+      class="p-2 border border-gray-300 rounded w-full"
+      [ngClass]="{ 'border-red-500': isFieldInvalid('nome') }"
+    />
+    <div *ngIf="isFieldInvalid('nome')" class="absolute left-full ml-2 text-red-500 text-sm">
+      Nome do sócio é obrigatório.
+    </div>
+  </div>
+
+  <!-- CPF do Sócio -->
+  <div class="relative">
+    <input
+      type="text"
+      placeholder="CPF do Sócio"
+      [(ngModel)]="socio.cpf"
+      class="p-2 border border-gray-300 rounded w-full"
+      [ngClass]="{ 'border-red-500': isFieldInvalid('cpf') }"
+    />
+    <div *ngIf="isFieldInvalid('cpf')" class="absolute left-full ml-2 text-red-500 text-sm">
+      CPF do sócio é obrigatório.
+    </div>
+  </div>
+
+  <!-- Endereço do Sócio -->
+  <div class="relative">
+    <input
+      type="text"
+      placeholder="Endereço do Sócio"
+      [(ngModel)]="socio.endereco"
+      class="p-2 border border-gray-300 rounded w-full"
+      [ngClass]="{ 'border-red-500': isFieldInvalid('endereco') }"
+    />
+    <div *ngIf="isFieldInvalid('endereco')" class="absolute left-full ml-2 text-red-500 text-sm">
+      Endereço do sócio é obrigatório.
+    </div>
+  </div>
+
+  <!-- Telefone do Sócio -->
+  <div class="relative">
+    <input
+      type="text"
+      placeholder="Telefone do Sócio"
+      [(ngModel)]="socio.telefone"
+      class="p-2 border border-gray-300 rounded w-full"
+      [ngClass]="{ 'border-red-500': isFieldInvalid('telefone') }"
+    />
+    <div *ngIf="isFieldInvalid('telefone')" class="absolute left-full ml-2 text-red-500 text-sm">
+      Telefone do sócio é obrigatório.
+    </div>
+  </div>
+
+  <!-- Botões de Ação -->
+  <div class="flex justify-end gap-2 mt-4">
+    <button (click)="onCancel()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+      Cancelar
+    </button>
+    <button (click)="onSave()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      Salvar
+    </button>
+  </div>
+</div>

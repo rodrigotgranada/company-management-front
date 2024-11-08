@@ -1,0 +1,21 @@
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a routerLink="/" class="text-white font-bold text-xl">Company Management</a>
+    <div>
+      <ul class="flex space-x-4">
+        <li *ngIf="!isUserLoggedIn">
+          <a routerLink="/login" class="text-gray-300 hover:text-white">Login</a>
+        </li>
+        <li *ngIf="isUserLoggedIn">
+          <a routerLink="/listar-empresas" class="text-gray-300 hover:text-white">Empresas</a>
+        </li>
+        <li *ngIf="isUserLoggedIn">
+          <span class="text-gray-300">{{ userRole }}</span>
+        </li>
+        <li *ngIf="isUserLoggedIn">
+          <button (click)="logout()" class="text-gray-300 hover:text-white">Sair</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

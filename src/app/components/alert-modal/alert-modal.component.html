@@ -1,0 +1,10 @@
+<div class="alert-modal" [ngClass]="data.type">
+    <h2 *ngIf="data.type === 'error'" class="text-red-500">Erro</h2>
+    <h2 *ngIf="data.type === 'warning'" class="text-yellow-500">Aviso</h2>
+    <h2 *ngIf="data.type === 'success'" class="text-green-500">Sucesso</h2>
+    <p>{{ data.message }}</p>
+    <button (click)="close()" class="px-4 py-2 mt-4 bg-blue-500 text-white rounded hover:bg-blue-600">
+      Fechar
+    </button>
+  </div>
+  

@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.custom-backdrop {
+  background: rgba(0, 0, 0, 0.5); // Ajuste a opacidade e cor do fundo
+}
+
+.custom-dialog-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 85vh; // Faz com que ocupe toda a altura da janela para centralizar verticalmente
+    overflow: hidden;
+  }
+  
+  .mat-mdc-dialog-surface {
+    // border-radius: 8px; // Arredondar bordas
+    padding: 20px;      // Espaçamento interno para melhorar a aparência
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); // Sombra para destacar o modal
+    max-height: 95vh;   // Evitar que a modal ultrapasse a tela
+    overflow-y: auto;   // Caso o conteúdo seja muito extenso, permite rolar
+  }

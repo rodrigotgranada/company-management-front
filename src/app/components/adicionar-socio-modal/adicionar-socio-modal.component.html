@@ -1,0 +1,35 @@
+<h2 class="text-lg font-bold mb-4">Adicionar Sócio</h2>
+<div class="flex flex-col gap-4">
+  <input
+    type="text"
+    [(ngModel)]="socio.nome"
+    placeholder="Nome do Sócio"
+    [ngClass]="{ 'input-invalid': isFieldInvalid('nome') }"
+    class="p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="text"
+    [(ngModel)]="socio.cpf"
+    placeholder="CPF do Sócio"
+    [ngClass]="{ 'input-invalid': isFieldInvalid('cpf') }"
+    class="p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="text"
+    [(ngModel)]="socio.endereco"
+    placeholder="Endereço do Sócio"
+    [ngClass]="{ 'input-invalid': isFieldInvalid('endereco') }"
+    class="p-2 border border-gray-300 rounded"
+  />
+  <input
+    type="text"
+    [(ngModel)]="socio.telefone"
+    placeholder="Telefone do Sócio"
+    [ngClass]="{ 'input-invalid': isFieldInvalid('telefone') }"
+    class="p-2 border border-gray-300 rounded"
+  />
+  <div class="flex justify-end gap-2 mt-4">
+    <button (click)="onCancel()" class="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">Cancelar</button>
+    <button (click)="onSave()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Adicionar</button>
+  </div>
+</div>
